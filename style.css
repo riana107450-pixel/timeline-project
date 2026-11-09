@@ -1,0 +1,363 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, "Noto Sans TC", sans-serif;
+    background: #eef1f5;
+    color: #333;
+}
+
+header {
+    padding: 25px 20px;
+    text-align: center;
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    margin: 0 0 8px;
+}
+
+header p {
+    margin: 0;
+    color: #777;
+}
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.settings {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.settings input {
+    padding: 8px;
+    margin-left: 10px;
+}
+
+.timeline-section {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.timeline {
+    margin-top: 25px;
+}
+
+
+/* 活動項目 */
+.timeline-item {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #8da8c3;
+    background: #f8f9fb;
+    border-radius: 5px;
+}
+
+/* 活動日期 */
+.timeline-item h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+/* 活動類型標籤 */
+.activity-type {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* 相對日期 */
+.activity-type.relative {
+    background: #e3efff;
+    color: #35649a;
+}
+
+/* 固定日期 */
+.activity-type.fixed {
+    background: #e4f3e8;
+    color: #347448;
+}
+
+/* 活動標題 */
+.timeline-item strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* 活動說明 */
+.timeline-item p {
+    margin-bottom: 0;
+    color: #666;
+}
+
+
+/* 活動管理區 */
+.event-editor {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.event-editor h2 {
+    margin-top: 0;
+}
+
+.event-editor form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.event-editor label {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.event-editor input,
+.event-editor select,
+.event-editor textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.event-editor textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background: #6486a8;
+    color: white;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.timeline-item button {
+    margin-top: 12px;
+}
+
+.timeline-item button:last-child {
+    background: #b96c6c;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* ===== 時間軸視覺設計 ===== */
+
+.timeline {
+    position: relative;
+    padding: 10px 0 10px 32px;
+}
+
+/* 中央時間軸線 */
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 15px;
+    bottom: 15px;
+    width: 3px;
+    background: #d9e0e8;
+    border-radius: 5px;
+}
+
+/* 活動卡片 */
+.timeline-item {
+    position: relative;
+    padding: 20px 24px;
+    margin-bottom: 25px;
+    background: #ffffff;
+    border: 1px solid #e4e8ed;
+    border-left: 4px solid #8da8c3;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* 時間軸上的圓點 */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -33px;
+    top: 25px;
+    width: 13px;
+    height: 13px;
+    background: #8da8c3;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #8da8c3;
+}
+
+/* 滑鼠移到活動卡片 */
+.timeline-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* 日期標題 */
+.timeline-item h3 {
+    margin: 0 0 14px;
+    font-size: 19px;
+    color: #354b61;
+}
+
+/* 活動類型 */
+.activity-type {
+    display: inline-block;
+    padding: 5px 12px;
+    margin-bottom: 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* 相對日期 */
+.activity-type.relative {
+    background: #e5effa;
+    color: #416b96;
+}
+
+/* 固定日期 */
+.activity-type.fixed {
+    background: #e5f2e8;
+    color: #477a54;
+}
+
+/* 活動名稱 */
+.timeline-item strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 17px;
+    color: #333333;
+}
+
+/* 活動說明 */
+.timeline-item p {
+    margin: 0;
+    line-height: 1.7;
+    color: #777777;
+}
+
+/* 活動操作按鈕 */
+.timeline-item button {
+    margin-top: 15px;
+    margin-right: 8px;
+}
+
+/* 手機版 */
+@media (max-width: 600px) {
+    main {
+        padding: 0 12px;
+    }
+
+    .timeline-section,
+    .event-editor {
+        padding: 18px;
+    }
+
+    .timeline {
+        padding-left: 28px;
+    }
+
+    .timeline-item {
+        padding: 16px;
+    }
+
+    .timeline-item h3 {
+        font-size: 16px;
+    }
+}
+
+/* 管理者後台 */
+
+.admin-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 24px;
+}
+
+.admin-container input,
+.admin-container select,
+.admin-container textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 8px 0 18px;
+    padding: 10px;
+}
+
+.admin-container label {
+    display: block;
+    font-weight: bold;
+}
+
+.admin-container button {
+    padding: 9px 18px;
+    margin: 5px 5px 5px 0;
+    cursor: pointer;
+}
+
+.admin-header,
+.admin-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.activity-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 14px 0;
+}
+
+.activity-card h4 {
+    margin-top: 0;
+}
+
+#activityMessage,
+#loginMessage {
+    color: #b45309;
+    white-space: pre-wrap;
+}
+
+.admin-container [hidden] {
+    display: none !important;
+}

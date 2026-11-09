@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活動時間軸</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>活動時間軸</h1>
+        <p>查看每日活動與重要日期</p>
+    </header>
+
+    <main>
+        <section class="settings">
+            <label for="startDate">時間軸起始日期：</label>
+            <input type="date" id="startDate">
+        </section>
+
+        
+<section class="event-editor">
+    <h2 id="formTitle">新增活動</h2>
+
+    <form id="eventForm">
+
+        <label for="eventType">活動日期類型</label>
+        <select id="eventType">
+            <option value="relative">相對日期（第幾天）</option>
+            <option value="fixed">固定日期（指定年月日）</option>
+        </select>
+
+        <div id="relativeDateField">
+            <label for="eventDay">第幾天</label>
+            <input
+                type="number"
+                id="eventDay"
+                min="1"
+                value="1"
+            >
+        </div>
+
+        <div id="fixedDateField" hidden>
+            <label for="eventDate">固定日期</label>
+            <input type="date" id="eventDate">
+        </div>
+
+        <label for="eventTitle">活動名稱</label>
+        <input
+            type="text"
+            id="eventTitle"
+            placeholder="請輸入活動名稱"
+            required
+        >
+
+        <label for="eventDescription">活動說明</label>
+        <textarea
+            id="eventDescription"
+            placeholder="請輸入活動說明"
+        ></textarea>
+
+        <div class="form-buttons">
+            <button type="submit" id="saveButton">
+                新增活動
+            </button>
+
+            <button type="button" id="cancelButton" hidden>
+                取消編輯
+            </button>
+        </div>
+
+    </form>
+</section>
+
+        <section class="timeline-section">
+            <h2>活動列表</h2>
+            <div id="timeline" class="timeline">
+                <!-- 活動將由 JavaScript 自動產生 -->
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

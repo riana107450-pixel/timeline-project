@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>時間軸管理後台</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="admin-container">
+        <h1>時間軸管理後台</h1>
+
+        <!-- 登入區域 -->
+        <section id="loginSection">
+            <h2>管理者登入</h2>
+
+            <form id="loginForm">
+                <label for="email">電子郵件</label>
+                <input type="email" id="email" required>
+
+                <label for="password">密碼</label>
+                <input type="password" id="password" required>
+
+                <button type="submit">登入</button>
+            </form>
+
+            <p id="loginMessage"></p>
+        </section>
+
+        <!-- 管理者區域 -->
+        <section id="adminSection" hidden>
+
+            <div class="admin-header">
+                <h2>活動管理</h2>
+                <button type="button" id="logoutButton">登出</button>
+            </div>
+
+            <h3 id="formTitle">新增活動</h3>
+
+            <form id="activityForm">
+
+                <label for="activityType">活動類型</label>
+                <select id="activityType" required>
+                    <option value="relative">相對日期</option>
+                    <option value="fixed">固定日期</option>
+                </select>
+
+                <div id="relativeField">
+                    <label for="relativeDay">第幾天</label>
+                    <input
+                        type="number"
+                        id="relativeDay"
+                        min="1"
+                        placeholder="例如：7"
+                    >
+                </div>
+
+                <div id="fixedField" hidden>
+                    <label for="fixedDate">指定日期</label>
+                    <input type="date" id="fixedDate">
+                </div>
+
+                <label for="activityTitle">活動名稱</label>
+                <input
+                    type="text"
+                    id="activityTitle"
+                    required
+                    placeholder="例如：活動開始"
+                >
+
+                <label for="activityDescription">活動說明</label>
+                <textarea
+                    id="activityDescription"
+                    rows="3"
+                    placeholder="輸入活動詳細說明（可留空）"
+                ></textarea>
+
+                <div class="admin-buttons">
+                    <button type="submit" id="saveButton">
+                        新增活動
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancelEditButton"
+                        hidden
+                    >
+                        取消編輯
+                    </button>
+                </div>
+
+                <p id="activityMessage"></p>
+            </form>
+
+            <hr>
+
+            <h3>目前所有活動</h3>
+
+            <div id="activityList">
+                正在載入活動……
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module" src="admin.js"></script>
+
+</body>
+</html>
